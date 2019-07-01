@@ -19,8 +19,10 @@
         var t1 = t * 0.0005;
         var s = .5 * 9.8 * t1 * t1;
         // print('stop after ' + duration + 'ms, height ' + s + 'm');
-        var rate = (-0.09889 / s + 1.08889) * 100;
-        print('你的手机飞了' + s.toFixed(3) + '米高，打败了全球' + rate.toFixed(1) + '%用户！');
+        var rate = (-0.09889 / (s + 0.09889) + 1) * 100;
+        var achieve = '你的手机飞了' + s.toFixed(3) + '米高，打败了全球' + rate.toFixed(1) + '%用户！';
+        print(achieve);
+        document.title = achieve + '|FlappyPhone';
         setTimeout(function() {
             document.getElementById('retry').style.display = 'block';
         }, 2000);
